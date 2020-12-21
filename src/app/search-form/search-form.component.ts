@@ -23,10 +23,48 @@ export class SearchFormComponent implements OnInit {
   searchForm: SearchResultForm | undefined;
   // f;
   // form11;
+  seriesTypes: Tupla[] = [
+    {value: 'collection', viewValue: 'Collection'},
+    {value: 'one%20shot', viewValue: 'One Shot'},
+    {value: 'limited', viewValue: 'Limited'},
+    {value: 'ongoing', viewValue: 'OnGoing'}
+  ];
+
+  containsList: Tupla[] = [
+    {value: 'comic', viewValue: 'Comic'},
+    {value: 'magazine', viewValue: 'Magazine'},
+    {value: 'trade paperback', viewValue: 'Trade Paperback'},
+    {value: 'hardcover', viewValue: 'Hardcover'},
+    {value: 'digest', viewValue: 'Digest'},
+    {value: 'graphic novel', viewValue: 'Graphic Novel'},
+    {value: 'digital comic', viewValue: 'Digital Comic'},
+    {value: 'infinite comic', viewValue: 'Infinite Comic'}
+  ];
+
+  orderByList: Tupla[] = [
+    {value: 'title', viewValue: 'title'},
+    {value: 'modified', viewValue: 'modified'},
+    {value: 'startYear', viewValue: 'startYear'},
+    {value: '-title', viewValue: '-title'},
+    {value: '-modified', viewValue: '-modified'},
+    {value: '-startYear', viewValue: '-startYear'},
+  ];
+
+  containsChecks = new FormControl();
+
+  orderByChecks = new FormControl();
+
+
+
+
+
+
+
   constructor(
     private route: ActivatedRoute,
     private searchApi: SearchApiService,
     private location: Location,
+    
     // private formBuilder: FormBuilder){
     //   this.f = formBuilder.group({
     //     characterId : ['', Validators.required],
@@ -68,17 +106,18 @@ export class SearchFormComponent implements OnInit {
     ){}
 
   ngOnInit(): void {
-    // for (let form of SEARCHRESULTFORMS) {
-    //   if( 10 === form.id){
-    //     this.urlSearch = form.urlSearch;
-    //     this.searchForm = form;
-    //     if(this.searchForm.id === 11){
-    //       //cambiar los required, validates
+    for (let form of SEARCHRESULTFORMS) {
+      if( 10 === form.id){
+        this.urlSearch = form.urlSearch;
+        this.searchForm = form;
+        if(this.searchForm.id === 11){
+          //cambiar los required, validates
 
-    //     }
+        }
         
-    //   }
-    // }
+      }
+    }
+    this.getResult();
 
   }
 
@@ -102,4 +141,11 @@ export class SearchFormComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+}
+
+
+// Interfaces
+interface Tupla {
+  value: string;
+  viewValue: string;
 }
