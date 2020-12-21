@@ -1,11 +1,11 @@
-<div *ngIf="searchForm.id === 10"></div>
+<!-- <div *ngIf="searchForm">
 <mat-card class="contact-card">
   <mat-card-header>
     <mat-card-title>Search Series By Id</mat-card-title>
   </mat-card-header>
   <mat-slider min="1" max="100" step="1" value="1"></mat-slider>
   <mat-card-content>
-    <form id="contactForm" [formGroup]="form10" (ngSubmit)="submit()">
+    <form id="contactForm" [formGroup]="f" (ngSubmit)="submit()">
       
       <mat-form-field class="field-full-width">
         <input matInput [(ngModel)]="characterId" placeholder="" type="number" name="characterId" id="characterId">
@@ -95,8 +95,8 @@
     </form>
   </mat-card-content>
 </mat-card>
-</div>
-<div *ngIf="searchForm.id === 11"></div>
+</div> -->
+<!-- <div *ngIf="searchForm.id === 11"></div>
 <mat-card class="contact-card">
   <mat-card-header>
     <mat-card-title>Search Series By Id</mat-card-title>
@@ -193,16 +193,18 @@
     </form>
   </mat-card-content>
 </mat-card>
-</div>
+</div> -->
 
+IF FORMULARIO 1
+IF FORMULARIO 2
 
 <div *ngIf="result">
-    <h2>{{result.copyright | uppercase}} Details</h2>
-    <div><span>code: </span>{{result.code}}</div>
-    <div>
-      <label>copyright:
-        <input [(ngModel)]="result.copyright" placeholder="copyright"/>
-      </label>
-    </div>
-    <button (click)="goBack()">go back</button>
+  <h2>{{result.copyright | uppercase}} Details</h2>
+  <div><span>id: </span>{{result.code}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="result.copyright" placeholder="name"/>
+    </label>
   </div>
+  <button (click)="goBack()">go back</button>
+</div>

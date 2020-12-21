@@ -1,4 +1,4 @@
-<h2>Search:</h2>
+<h2>My Search</h2>
 <ul class="search">
   <li *ngFor="let search of searchs"
     [class.selected]="search === selectedSearch"
@@ -8,3 +8,12 @@
 </ul>
 
 <app-search-form [search]="selectedSearch"></app-search-form>
+
+<!-- <h2>My Search</h2>
+<ul class="search">
+  <li *ngFor="let search of searchs">
+    <a routerLink="/search-form/{{search.id}}">
+      <span class="result">{{search.id}}</span> {{search.name}}
+    </a>
+  </li>
+</ul> -->

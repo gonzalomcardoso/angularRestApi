@@ -9,3 +9,4 @@ export const SEARCHRESULTS: SearchResult[] = [
     id : 11,
     name : 'series by Id'
 }
+]

@@ -22,12 +22,12 @@ export class SearchComponent implements OnInit {
 
   onSelect(search: SearchResult): void {
     this.selectedSearch = search;
-    this.messageService.add(`SearchComponent: Selected result id=${result.id}`);
+    this.messageService.add(`SearchComponent: Selected result id=${search.id}`);
   }
 
   getSearch(): void {
     this.searchService.getSearch()
-        .subscribe((results: SearchResult[]) => this.results = results);
+        .subscribe((searchs: SearchResult[]) => this.searchs = searchs);
   }
 
 
