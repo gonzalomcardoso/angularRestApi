@@ -1,0 +1,10 @@
+<h2>Search:</h2>
+<ul class="search">
+  <li *ngFor="let search of searchs"
+    [class.selected]="search === selectedSearch"
+    (click)="onSelect(search)">
+    <span class="result">{{search.id}}</span> {{search.name}}
+  </li>
+</ul>
+
+<app-search-form [search]="selectedSearch"></app-search-form>

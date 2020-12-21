@@ -1,0 +1,95 @@
+<mat-card class="contact-card">
+    <mat-card-header>
+      <mat-card-title>Search Series By Id</mat-card-title>
+    </mat-card-header>
+    <mat-slider min="1" max="100" step="1" value="1"></mat-slider>
+    <mat-card-content>
+      <form novalidate (ngSubmit)="onSubmit()" #f="ngForm">
+        
+        <mat-form-field class="field-full-width">
+          <input matInput [(ngModel)]="characterId" placeholder="" type="number" name="characterId" id="characterId">
+          <mat-label>characterId:</mat-label>
+        </mat-form-field>
+
+        <mat-form-field class="field-full-width">
+          <input matInput [(ngModel)]="title" placeholder="" type="text" name="title" id="title">
+          <mat-label>title:</mat-label>
+        </mat-form-field>
+        
+        <mat-form-field class="field-full-width">
+          <input matInput [(ngModel)]="titleStartsWith" placeholder="" type="text" name="titleStartsWith" id="titleStartsWith">
+          <mat-label>titleStartsWith:</mat-label>
+        </mat-form-field>
+        
+        <mat-form-field class="field-full-width">
+          <input matInput [(ngModel)]="startYear" placeholder="" type="number" name="startYear" id="startYear">
+          <mat-label>startYear:</mat-label>
+        </mat-form-field>
+        
+        <mat-form-field class="field-full-width" appearance="fill">
+            <input matInput [matDatepicker]="modifiedSince" name="modifiedSince" id="modifiedSince">
+            <mat-datepicker-toggle matSuffix [for]="modifiedSince"></mat-datepicker-toggle>
+            <mat-datepicker #modifiedSince></mat-datepicker>
+            <mat-label>modifiedSince:</mat-label>
+        </mat-form-field>
+          
+        <mat-form-field class="field-full-width">
+          <input matInput [(ngModel)]="comics" placeholder="" type="text" name="comics" id="comics">
+          <mat-label>comics:</mat-label>
+        </mat-form-field>
+          
+        <mat-form-field class="field-full-width">
+          <input matInput [(ngModel)]="stories" placeholder="" type="text" name="stories" id="stories">
+          <mat-label>stories:</mat-label>
+        </mat-form-field>
+          
+        <mat-form-field class="field-full-width">
+          <input matInput [(ngModel)]="events" placeholder="" type="text" name="events" id="events">
+          <mat-label>events:</mat-label>
+        </mat-form-field>
+        
+        <mat-form-field class="field-full-width">
+          <input matInput [(ngModel)]="creators" placeholder="" type="text" name="creators" id="creators">
+          <mat-label>creators:</mat-label>
+        </mat-form-field>
+          
+        <mat-form-field class="field-full-width" appearance="fill">
+          <mat-select>
+            <mat-option *ngFor="let seriesType of seriesTypes" [value]="seriesType.value" placeholder="" class="parameter" name="seriesType" id="seriesType">
+              {{seriesType.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-label>seriesType:</mat-label>
+        </mat-form-field>
+
+        <mat-form-field class="field-full-width" appearance="fill">
+          <mat-select [formControl]="containsChecks" multiple>
+            <mat-option *ngFor="let contains of containsList" [value]="contains.value">{{contains.viewValue}}</mat-option>
+          </mat-select>
+          <mat-label>contains:</mat-label>
+        </mat-form-field>
+
+        <mat-form-field class="field-full-width" appearance="fill">
+          <mat-select [formControl]="orderByChecks" multiple>
+            <mat-option *ngFor="let orderBy of orderByList" [value]="orderBy.value">{{orderBy.viewValue}}</mat-option>
+          </mat-select>
+          <mat-label>orderBy:</mat-label>
+        </mat-form-field>
+
+        <mat-form-field class="field-full-width">
+          <input matInput [(ngModel)]="limit" placeholder="" type="number" name="limit" id="limit">
+          <mat-label>limit:</mat-label>
+        </mat-form-field>
+
+        <mat-form-field class="field-full-width">
+          <input matInput [(ngModel)]="offset" placeholder="" type="number" name="offset" id="offset">
+          <mat-label>offset:</mat-label>
+        </mat-form-field>
+
+        <mat-form-field class="field-full-width">
+          <input matInput [(ngModel)]="apikey" placeholder="" id="apikey" name="apikey" type="hidden" value="xm234jq" disabled>
+        </mat-form-field>
+      
+      </form>
+    </mat-card-content>
+  </mat-card>

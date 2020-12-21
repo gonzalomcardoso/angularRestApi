@@ -1,0 +1,9 @@
+<h3>Select Search</h3>
+<div class="grid grid-pad">
+  <a *ngFor="let search of searchs" class="col-1-4"
+      routerLink="/search-form/{{search.id}}">
+    <div class="module search">
+      <h4>{{search.name}}</h4>
+    </div>
+  </a>
+</div>
